@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+
+
+</head>
+
+<body>
+
+    <div class="calculator">
+        <input id="inputBox" class="resultsbox" type="text" placeholder="0" disabled="disabled">
+        <div>
+            <button onclick="clear1()">AC</button>
+            <button onclick="del()">DEL</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+        </div>
+        <div>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">x</button>
+        </div>
+        <div>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+        </div>
+        <div>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+        </div>
+        <div>
+            <button onclick="display('00')">00</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="calculate()" id="equal" class="button">=</button>
+        </div>
+    </div>
+
+    <script>
+        function display(Numbers) {
+            document.getElementById("inputBox").value += Numbers;
+        }
+        function calculate() {
+            var x = document.getElementById("inputBox").value;
+            var y = eval(x);
+            document.getElementById("inputBox").value = y;
+
+        }
+        function clear1() {
+            document.getElementById("inputBox").value = "";
+
+        }
+
+        function del() {
+            var inputBox = document.getElementById("inputBox");
+            var inputtext = inputBox.value;
+            inputBox.value = inputtext.slice(0, -1);
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(https://w0.peakpx.com/wallpaper/875/382/HD-wallpaper-petronas-towers-skyscrapers-kuala-lumpur-sunset-malaysia-nightscapes-asia-petronas-towers-at-evening.jpg);
+        }
+
+        .calculater {
+            border: 1px solid #717377;
+            padding: 20px;
+            border-radius: 16px;
+            background: transparent;
+            box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+        }
+
+        input.resultsbox {
+            width: 100%;
+            padding: 24px;
+            margin: 0%;
+            background: transparent;
+            box-shadow: 0px 3px 15px rgba(85, 84, 84, 0.1);
+            font-size: 40px;
+            text-align: right;
+            cursor: pointer;
+            color: #ffffff;
+            border: 1px solid #f2f2f2;
+        }
+
+        .calculator {
+            background: linear-gradient(45deg, #722a2a, transparent);
+            max-width: 335px;
+            border: 1px solid#fff;
+        }
+
+        input::placeholder {
+            color: #ffffff;
+        }
+
+        button {
+            border: none;
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            border-radius: 50%;
+            color: #000000;
+            font-size: 20px;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            background: #fff;
+            font-weight: bold;
+        }
+    </style>
+</body>
+
+</html>
